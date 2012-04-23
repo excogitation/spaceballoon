@@ -1,0 +1,46 @@
+#include <avr/io.h>
+#ifndef F_CPU
+#define F_CPU 9600000UL
+#endif
+#include <util/delay.h>
+
+int main(void)
+{
+
+    int iBlink = 0;
+    int iTimelapse = 0;
+    int iRecord = 0;
+    
+    DDRB |= _BV( PB3 );
+    DDRB |= _BV( PB0 );
+    DDRB |= _BV( PB1 );
+    while( 1 ) { 
+
+	iBlink++;
+	if(iBlink==1) {
+	  PORTB |=  _BV( PB3 );
+	  //_delay_ms(10);
+	  iBlink = 1;
+	} else if(iBlink==4) {
+	  PORTB &=~ _BV( PB3 );
+	  //_delay_ms(10);
+	  iBlink = 0;
+	}
+        
+        PORTB |=  _BV( PB0 );
+        PORTB |=  _BV( PB1 );
+
+        _delay_ms(50);
+        PORTB &=~ _BV( PB0 );
+        PORTB &=~ _BV( PB1 );
+
+
+       // PORTB |=  _BV( PB3 );
+       // _delay_ms(50);
+       // PORTB &=~ _BV( PB3 );
+        _delay_ms(100);
+    }
+
+}
+
+
