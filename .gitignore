@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Makefile
 flash.sh
 .o
@@ -5,3 +6,10 @@ flash.sh
 .hex
 .out
 .bak
+=======
+CMakeCache.txt
+CMakeFiles
+Makefile
+cmake_install.cmake
+install_manifest.txt
+>>>>>>> 60bccb37ed50e40ba37f89abadeeb672e6ca98d5
